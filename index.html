@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adrenalize Marketing Digital</title>
+<meta name="description" content="Adrenalize Marketing Digital: tráfego pago, redes sociais, design gráfico e sites que geram leads e vendas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: wordmark gigante em marquee, trilhos de cards que correm em sentidos opostos conforme a rolagem, seções em blocos de cor cheia. */
+:root{
+  --ink:#0c0b0a;
+  --ink-2:#171412;
+  --ink-3:#24201d;
+  --bone:#f3eee7;
+  --flame:#ff5500;
+  --ember:#c23a00;
+  --ash:#9a918a;
+  --line:rgba(243,238,231,.12);
+  --wa:#25d366;
+  --f-display:"Archivo","Arial Narrow",Impact,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --gut-l:max(16px,env(safe-area-inset-left,0px));
+  --gut-r:max(16px,env(safe-area-inset-right,0px));
+  --maxw:1320px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:var(--bone);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+a{color:inherit}
+img{max-width:100%}
+:focus-visible{outline:2px solid var(--flame);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.display{font-family:var(--f-display);font-weight:900;font-stretch:62%;line-height:.86;letter-spacing:-.01em;text-transform:uppercase}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--ink) 78%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:24px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:800;font-stretch:125%;letter-spacing:.16em;font-size:15px}
+.brand svg{width:30px;height:26px;fill:var(--bone)}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{text-decoration:none;font-size:14px;color:var(--ash);transition:color .2s}
+.nav ul a:hover{color:var(--bone)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .25s,color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-fire{background:var(--flame);color:var(--ink)}
+.btn-fire:hover{background:var(--bone)}
+.btn-ghost{border:1px solid var(--line);color:var(--bone)}
+.btn-ghost:hover{border-color:var(--bone)}
+.btn svg{width:18px;height:18px;fill:currentColor}
+.nav .btn{padding:10px 18px;font-size:14px}
+@media (max-width:900px){.nav ul{display:none}.nav .btn{margin-left:auto}}
+@media (max-width:520px){.nav-cta-t{display:none}.nav .btn{padding:10px 12px}}
+
+/* HERO */
+.hero{padding-block:clamp(48px,9vw,120px) 0;position:relative}
+.hero-top{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
+.hero h1{margin:0;font-family:var(--f-display);font-weight:400;font-stretch:100%;font-size:clamp(34px,4.6vw,64px);line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
+.hero h1 em{font-style:normal;font-weight:900;font-stretch:62%;color:var(--flame);text-transform:uppercase;letter-spacing:0}
+.hero p{margin:0 0 24px;color:var(--ash);max-width:46ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero .eyebrow{display:flex;align-items:center;gap:10px;color:var(--flame);margin-bottom:22px}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--flame);box-shadow:0 0 0 0 rgba(255,85,0,.6);animation:pulse 1.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 12px rgba(255,85,0,0)}100%{box-shadow:0 0 0 0 rgba(255,85,0,0)}}
+@media (max-width:900px){.hero-top{grid-template-columns:1fr}}
+
+.mega{margin-top:clamp(36px,6vw,80px);overflow:hidden;white-space:nowrap;border-block:1px solid var(--line)}
+.mega-track{display:inline-flex;will-change:transform}
+.mega-track span{font-size:clamp(96px,19vw,300px);padding-right:.18em;display:inline-flex;align-items:center;gap:.18em}
+.mega-track span i{font-style:normal;color:transparent;-webkit-text-stroke:2px var(--bone)}
+.mega-track span b{color:var(--flame);font-weight:900}
+.mega-track svg{height:.62em;width:auto;fill:var(--flame)}
+
+/* REEL (cards que correm) */
+.reel{padding-block:clamp(28px,4vw,56px);display:grid;gap:14px;overflow:hidden}
+.row{display:flex;gap:14px;will-change:transform;width:max-content}
+.row.r1 .tile{height:clamp(220px,34vw,440px)}
+.row.r2 .tile{height:clamp(170px,22vw,300px)}
+.row.r3 .tile{height:clamp(120px,14vw,190px)}
+.tile{aspect-ratio:16/10;max-width:none;border-radius:20px;position:relative;overflow:hidden;flex:none;padding:clamp(14px,2vw,28px);display:flex;flex-direction:column;justify-content:space-between;isolation:isolate}
+.tile .tag{font-family:var(--f-mono);font-size:clamp(9px,.9vw,12px);letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.tile .big{font-family:var(--f-display);font-weight:900;font-stretch:62%;text-transform:uppercase;line-height:.88;font-size:clamp(28px,4.4vw,72px)}
+.row.r2 .tile .big{font-size:clamp(22px,3vw,48px)}
+.row.r3 .tile .big{font-size:clamp(18px,2vw,32px)}
+.t-fire{background:var(--flame);color:var(--ink)}
+.t-bone{background:var(--bone);color:var(--ink)}
+.t-ink{background:var(--ink-3);color:var(--bone)}
+.t-ember{background:linear-gradient(140deg,var(--ember),#5a1a00 70%);color:var(--bone)}
+.t-wa{background:#0e2a1d;color:var(--bone)}
+
+/* tile: Google Ads */
+.serp{background:var(--bone);color:var(--ink);border-radius:12px;padding:clamp(10px,1.4vw,18px);font-size:clamp(10px,1.05vw,14px);line-height:1.35;box-shadow:0 20px 40px rgba(0,0,0,.25)}
+.serp small{display:block;font-weight:600}
+.serp strong{display:block;color:#1a3fd6;font-size:1.25em;margin:4px 0}
+.serp .bar{height:7px;border-radius:4px;background:#d9d2c9;margin-top:6px}
+.serp .bar.s{width:70%}
+.cursor{position:absolute;width:22px;height:22px;right:18%;bottom:20%;animation:click 3.2s infinite}
+.cursor svg{width:100%;height:100%;fill:var(--ink);stroke:var(--bone);stroke-width:1.2}
+@keyframes click{0%,100%{transform:translate(40px,30px)}45%{transform:translate(0,0)}52%{transform:translate(0,0) scale(.82)}60%{transform:translate(0,0)}}
+
+/* tile: feed */
+.feed{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;width:60%;align-self:flex-end}
+.feed i{aspect-ratio:1;border-radius:6px;background:var(--ink-3);animation:feed 4.5s infinite}
+.feed i:nth-child(2){animation-delay:.5s}.feed i:nth-child(3){animation-delay:1s}.feed i:nth-child(4){animation-delay:1.5s}.feed i:nth-child(5){animation-delay:2s}.feed i:nth-child(6){animation-delay:2.5s}
+@keyframes feed{0%,100%{background:var(--ink-3)}40%{background:var(--flame)}60%{background:var(--bone)}}
+.likes{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:clamp(11px,1vw,14px)}
+.likes svg{width:18px;height:18px;fill:var(--flame);animation:beat 1.2s infinite}
+@keyframes beat{30%{transform:scale(1.3)}60%{transform:scale(1)}}
+
+/* tile: chart */
+.bars{display:flex;align-items:flex-end;gap:6px;height:55%}
+.bars i{flex:1;background:var(--ink);border-radius:4px 4px 0 0;transform-origin:bottom;animation:grow 3s ease-in-out infinite alternate}
+.bars i:nth-child(1){height:22%}.bars i:nth-child(2){height:30%;animation-delay:.1s}.bars i:nth-child(3){height:28%;animation-delay:.2s}.bars i:nth-child(4){height:45%;animation-delay:.3s}.bars i:nth-child(5){height:52%;animation-delay:.4s}.bars i:nth-child(6){height:68%;animation-delay:.5s}.bars i:nth-child(7){height:80%;animation-delay:.6s}.bars i:nth-child(8){height:100%;animation-delay:.7s;background:var(--bone)}
+@keyframes grow{from{transform:scaleY(.35)}to{transform:scaleY(1)}}
+
+/* tile: identidade */
+.swatches{display:flex;gap:8px}
+.swatches i{flex:1;aspect-ratio:1;border-radius:50%;animation:spin 6s linear infinite}
+.swatches i:nth-child(1){background:var(--flame)}.swatches i:nth-child(2){background:var(--ink)}.swatches i:nth-child(3){background:#e9c46a;animation-direction:reverse}.swatches i:nth-child(4){background:#2a9d8f}
+@keyframes spin{50%{border-radius:28%}}
+.aa{font-family:var(--f-display);font-weight:300;font-stretch:125%;font-size:clamp(56px,8vw,130px);line-height:.8;animation:wght 4s ease-in-out infinite alternate}
+@keyframes wght{to{font-weight:900;font-stretch:62%}}
+
+/* tile: site */
+.browser{background:var(--ink);border-radius:12px;overflow:hidden;border:1px solid var(--line);height:72%;display:flex;flex-direction:column}
+.browser .top{display:flex;gap:5px;padding:8px 10px;border-bottom:1px solid var(--line)}
+.browser .top i{width:7px;height:7px;border-radius:50%;background:var(--ink-3)}
+.browser .body{flex:1;padding:12px;display:grid;gap:7px;align-content:start;position:relative;overflow:hidden}
+.browser .body b{height:12px;width:60%;background:var(--flame);border-radius:3px}
+.browser .body s{height:6px;background:var(--ink-3);border-radius:3px;text-decoration:none}
+.browser .body s:nth-of-type(2){width:80%}.browser .body s:nth-of-type(3){width:50%}
+.browser .body u{margin-top:6px;width:90px;height:22px;border-radius:99px;background:var(--bone)}
+.scan{position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(255,85,0,.18),transparent);height:40%;animation:scan 2.8s linear infinite}
+@keyframes scan{from{transform:translateY(-100%)}to{transform:translateY(260%)}}
+
+/* tile: maps */
+.map{position:absolute;inset:0;z-index:-1;background:
+ linear-gradient(90deg,transparent 48%,rgba(12,11,10,.08) 48% 52%,transparent 52%) 0 0/70px 70px,
+ linear-gradient(0deg,transparent 48%,rgba(12,11,10,.08) 48% 52%,transparent 52%) 0 0/70px 70px,
+ linear-gradient(30deg,transparent 46%,rgba(255,85,0,.25) 46% 50%,transparent 50%) 0 0/100% 100%}
+.pin{position:absolute;left:58%;top:30%;width:34px;height:34px}
+.pin svg{width:100%;height:100%;fill:var(--flame);animation:drop 2.4s cubic-bezier(.3,1.6,.5,1) infinite}
+.pin::after{content:"";position:absolute;left:50%;bottom:-6px;width:30px;height:10px;margin-left:-15px;border-radius:50%;background:rgba(255,85,0,.35);animation:ring 2.4s infinite}
+@keyframes drop{0%{transform:translateY(-30px)}25%,100%{transform:translateY(0)}}
+@keyframes ring{0%,20%{transform:scale(.3);opacity:1}100%{transform:scale(2.2);opacity:0}}
+.stars{color:var(--flame);letter-spacing:.15em;font-size:clamp(14px,1.6vw,22px)}
+
+/* tile: whatsapp */
+.chat{display:grid;gap:8px;font-size:clamp(10px,1.05vw,14px)}
+.chat p{margin:0;padding:8px 12px;border-radius:12px;max-width:80%;animation:pop 6s infinite both}
+.chat .in{background:#1f3b2e;justify-self:start;border-bottom-left-radius:3px}
+.chat .out{background:var(--wa);color:#06281a;justify-self:end;border-bottom-right-radius:3px;animation-delay:1.2s}
+.chat .in:nth-child(3){animation-delay:2.4s}
+@keyframes pop{0%{transform:scale(.6);opacity:0}8%,85%{transform:scale(1);opacity:1}100%{opacity:0}}
+
+/* tile: reach */
+.reach{position:absolute;inset:auto 0 0 0;height:60%;z-index:-1}
+.reach path{fill:none;stroke:var(--flame);stroke-width:3;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 3.5s ease-out infinite}
+@keyframes draw{70%,100%{stroke-dashoffset:0}}
+
+/* MARQUEE faixa */
+.band{background:var(--flame);color:var(--ink);overflow:hidden;white-space:nowrap;transform:rotate(-2deg);margin-block:clamp(40px,6vw,80px);width:110%;margin-left:-5%}
+.band-track{display:inline-flex;padding-block:16px;will-change:transform}
+.band-track span{font-family:var(--f-display);font-weight:900;font-stretch:62%;text-transform:uppercase;font-size:clamp(28px,4vw,56px);line-height:1;padding-right:.5em;display:inline-flex;gap:.5em;align-items:center}
+.band-track span::after{content:"";width:.45em;height:.45em;background:var(--ink);clip-path:polygon(50% 0,100% 100%,0 100%)}
+
+
+/* BLACK NOVEMBER */
+.black{background:#000;border-block:1px solid var(--line);overflow:hidden}
+.black .wrap{padding-block:clamp(56px,8vw,110px)}
+.black-top{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;margin-bottom:clamp(32px,5vw,56px)}
+.black h2{margin:0;font-size:clamp(64px,12vw,200px)}
+.black h2 span{display:block;color:transparent;-webkit-text-stroke:2px var(--flame)}
+.black .sub{margin:18px 0 0;color:var(--ash);max-width:52ch}
+.count{display:flex;gap:10px}
+.count div{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-width:74px;text-align:center}
+.count b{display:block;font-family:var(--f-display);font-weight:900;font-stretch:62%;font-size:clamp(40px,5vw,64px);line-height:.9;color:var(--flame);font-variant-numeric:tabular-nums}
+.count span{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ash)}
+.offers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.offer{background:var(--ink-2);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:14px;transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .35s}
+.offer:hover{transform:translateY(-6px);border-color:var(--flame)}
+.offer.hot{background:var(--flame);color:var(--ink);border-color:var(--flame)}
+.offer h3{margin:0;font-family:var(--f-display);font-weight:800;font-stretch:75%;text-transform:uppercase;font-size:clamp(26px,2.4vw,34px);line-height:.95}
+.offer ul{margin:0;padding:0 0 0 18px;font-size:14px;line-height:1.5;color:var(--ash);display:grid;gap:4px}
+.offer.hot ul{color:#3a1500}
+.offer .now{display:flex;align-items:baseline;gap:6px;font-family:var(--f-display);font-weight:900;font-stretch:62%;line-height:.85;margin-top:auto}
+.offer .now small{font-size:22px}
+.offer .now strong{font-size:clamp(64px,6vw,88px)}
+.offer .after{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ash)}
+.offer.hot .after{color:#3a1500}
+.offer .btn{justify-content:center}
+.offer.hot .btn-fire{background:var(--ink);color:var(--bone)}
+.offer.hot .btn-fire:hover{background:var(--bone);color:var(--ink)}
+.offer .flag{align-self:flex-start;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--flame);padding:5px 9px;border-radius:99px}
+.black .rules{margin:28px 0 0;color:var(--ash);font-size:13px;max-width:90ch}
+@media (max-width:1100px){.offers{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.black-top{grid-template-columns:1fr}}
+@media (max-width:560px){.offers{grid-template-columns:1fr}.count div{min-width:0;flex:1}}
+.nav ul a.bn{color:var(--flame);font-weight:600}
+
+/* SECTION HEAD */
+section{position:relative}
+.sec{padding-block:clamp(64px,9vw,130px)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(32px,5vw,64px)}
+.head h2{margin:0;font-size:clamp(52px,9vw,140px)}
+.head h2 span{color:var(--flame)}
+.head p{margin:0;color:var(--ash);max-width:38ch}
+
+/* SOLUÇÕES */
+.svc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.svc li{border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.svc a{display:grid;grid-template-columns:1.2fr 1fr auto;gap:24px;align-items:center;padding:clamp(22px,3vw,40px) 0;text-decoration:none;position:relative;z-index:1;transition:color .35s,padding .35s}
+.svc li::before{content:"";position:absolute;inset:0;background:var(--flame);transform:scaleY(0);transform-origin:bottom;transition:transform .45s cubic-bezier(.7,0,.2,1)}
+.svc li:hover::before{transform:scaleY(1)}
+.svc li:hover a{color:var(--ink);padding-left:20px}
+.svc li:hover .svc-d{color:var(--ink)}
+.svc-t{font-family:var(--f-display);font-weight:800;font-stretch:75%;text-transform:uppercase;font-size:clamp(34px,5.4vw,84px);line-height:.9}
+.svc-d{color:var(--ash);max-width:44ch;transition:color .35s;min-width:0}
+.svc-d small{display:block;margin-top:8px;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.8}
+.svc .arrow{width:clamp(44px,5vw,72px);height:clamp(44px,5vw,72px);border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;transition:transform .45s}
+.svc .arrow svg{width:40%;height:40%;fill:none;stroke:currentColor;stroke-width:2}
+.svc li:hover .arrow{transform:rotate(-45deg);background:var(--ink);color:var(--flame);border-color:var(--ink)}
+@media (max-width:760px){.svc a{grid-template-columns:1fr auto}.svc-d{grid-column:1/-1;grid-row:2}}
+
+/* CLUBE */
+.club{background:var(--bone);color:var(--ink);border-radius:clamp(20px,3vw,40px);margin-inline:max(8px,env(safe-area-inset-left,0px));overflow:hidden}
+.club .wrap{padding-block:clamp(48px,7vw,100px)}
+.club-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,72px);align-items:start}
+.club .kicker{color:var(--ember)}
+.club h2{margin:14px 0 18px;font-size:clamp(56px,9vw,150px)}
+.club h2 span{display:block;color:var(--flame)}
+.club p.lead{margin:0 0 28px;max-width:44ch;color:#4a433d}
+.price{display:flex;align-items:flex-start;gap:8px;font-family:var(--f-display);font-weight:900;font-stretch:62%;line-height:.8}
+.price small{font-size:clamp(24px,3vw,40px);margin-top:.25em}
+.price strong{font-size:clamp(110px,16vw,240px);letter-spacing:-.02em}
+.price-note{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin:10px 0 28px;color:#4a433d}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chips span{background:var(--ink);color:var(--bone);padding:7px 12px;border-radius:99px;font-size:13px}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid rgba(12,11,10,.15)}
+.checks li{display:flex;gap:14px;align-items:baseline;padding:14px 0;border-bottom:1px solid rgba(12,11,10,.15)}
+.checks li::before{content:"";flex:none;width:10px;height:10px;background:var(--flame);clip-path:polygon(50% 0,100% 100%,0 100%);transform:translateY(-1px)}
+.club .fine{font-size:13px;color:#6b625b;margin:18px 0 26px}
+.club .btn-fire:hover{background:var(--ink);color:var(--bone)}
+@media (max-width:900px){.club-grid{grid-template-columns:1fr}}
+
+/* PROCESSO */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px);position:relative}
+.track{position:absolute;left:0;right:0;top:-28px;height:2px;background:var(--line)}
+.track i{position:absolute;inset:0;background:var(--flame);transform-origin:left;transform:scaleX(.08)}
+.step{background:var(--ink-2);border:1px solid var(--line);border-radius:20px;padding:clamp(22px,2.4vw,34px);display:flex;flex-direction:column;gap:18px;min-height:240px;transition:background .35s,transform .35s}
+.step:hover{background:var(--ink-3);transform:translateY(-4px)}
+.step .n{font-family:var(--f-display);font-weight:900;font-stretch:62%;font-size:clamp(64px,7vw,108px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--flame)}
+.step h3{margin:auto 0 0;font-size:22px;font-weight:600}
+.step p{margin:0;color:var(--ash);font-size:15px}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}.step{min-height:0}}
+
+/* CLIENTES */
+.clients{overflow:hidden;border-block:1px solid var(--line);padding-block:28px}
+.clients-track{display:inline-flex;gap:56px;align-items:center;will-change:transform;white-space:nowrap}
+.clients-track img{height:96px;width:auto;opacity:.8;transition:filter .3s,opacity .3s}
+.clients-track img:hover{opacity:1}
+.clients-fallback{font-family:var(--f-display);font-weight:800;font-stretch:75%;text-transform:uppercase;font-size:clamp(26px,3vw,40px);color:var(--ash);display:inline-flex;gap:56px}
+.clients-fallback b{color:var(--flame)}
+
+/* CTA FINAL */
+.final{text-align:left}
+.final h2{margin:0;font-size:clamp(64px,13vw,220px)}
+.final h2 .o{color:transparent;-webkit-text-stroke:2px var(--bone)}
+.final h2 .f{color:var(--flame)}
+.final-grid{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end;margin-top:clamp(28px,4vw,48px)}
+.contacts{display:grid;grid-template-columns:repeat(3,auto);gap:12px 40px}
+.contacts div{display:grid;gap:4px}
+.contacts .mono{color:var(--ash)}
+.contacts a,.contacts span{font-size:18px;text-decoration:none;user-select:all}
+.contacts a:hover{color:var(--flame)}
+.giant-btn{width:clamp(150px,16vw,220px);aspect-ratio:1;border-radius:50%;background:var(--flame);color:var(--ink);display:grid;place-items:center;text-align:center;text-decoration:none;font-family:var(--f-display);font-weight:900;font-stretch:62%;text-transform:uppercase;font-size:clamp(20px,2vw,28px);line-height:.95;transition:transform .4s cubic-bezier(.2,.8,.2,1),background .3s;position:relative}
+.giant-btn:hover{transform:scale(1.07) rotate(-6deg);background:var(--bone)}
+.giant-btn svg.ring{position:absolute;inset:-14px;width:calc(100% + 28px);height:calc(100% + 28px);animation:rot 14s linear infinite}
+.giant-btn svg.ring text{fill:var(--ash);font-family:var(--f-mono);font-size:7.6px;letter-spacing:2.4px}
+@keyframes rot{to{transform:rotate(360deg)}}
+@media (max-width:900px){.final-grid{grid-template-columns:1fr}.contacts{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.contacts{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);margin-top:clamp(56px,8vw,100px)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:center;padding-block:28px;color:var(--ash);font-size:14px}
+footer nav{display:flex;flex-wrap:wrap;gap:20px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--bone)}
+
+/* WhatsApp flutuante */
+.wa-float{position:fixed;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:55;width:58px;height:58px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.4);transition:transform .25s}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="4 3.5 31 26"><path d="M19.4 4.4 25.3 12.4 13.2 22.2 5.6 28.8Z"/><path d="M21.6 21.8 30.2 21.9 34.4 28.8 32.6 28.8Z"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#topo" aria-label="Adrenalize, início"><svg><use href="#mark"/></svg>ADRENALIZE</a>
+    <ul>
+      <li><a class="bn" href="#black">Black November</a></li>
+      <li><a href="#clube">Clube Visibilidade</a></li>
+      <li><a href="#solucoes">Soluções</a></li>
+      <li><a href="#processo">Como funciona</a></li>
+      <li><a href="#clientes">Clientes</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a class="btn btn-fire" href="https://wa.me/5547992814041" target="_blank" rel="noopener" aria-label="Falar com especialista no WhatsApp"><svg><use href="#wa"/></svg><span class="nav-cta-t">Falar com especialista</span></a>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <div class="wrap hero-top">
+      <div>
+        <div class="eyebrow mono"><span class="pulse"></span>Agência de marketing digital</div>
+        <h1>Seu negócio merece <em>crescimento real.</em> A gente coloca ele em movimento.</h1>
+      </div>
+      <div>
+        <p>Tráfego pago, redes sociais, design gráfico e sites de alta conversão. Estratégias que geram leads e vendem.</p>
+        <div class="ctas">
+          <a class="btn btn-fire" href="https://wa.me/5547992814041" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Quero crescer agora</a>
+          <a class="btn btn-ghost" href="#black">Ver ofertas Black November</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mega" aria-hidden="true">
+      <div class="mega-track display" id="mega">
+        <span>Adrenalize<svg><use href="#mark"/></svg><i>Marketing</i><b>com pulso</b><svg><use href="#mark"/></svg></span>
+        <span>Adrenalize<svg><use href="#mark"/></svg><i>Marketing</i><b>com pulso</b><svg><use href="#mark"/></svg></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="reel" aria-label="O que fazemos, em movimento">
+    <div class="row r1" data-dir="-1">
+      <div class="tile t-fire">
+        <span class="tag">Google Ads</span>
+        <div class="serp"><small>Patrocinado · suaempresa.com.br</small><strong>Apareça primeiro quando procurarem por você</strong><div class="bar"></div><div class="bar s"></div></div>
+        <span class="cursor"><svg viewBox="0 0 24 24"><path d="M4 2l16 9-7 2-3 7z"/></svg></span>
+      </div>
+      <div class="tile t-ink">
+        <span class="tag">Meta Ads · alcance</span>
+        <span class="big">Mais gente<br>vendo você</span>
+        <svg class="reach" viewBox="0 0 400 200" preserveAspectRatio="none"><path d="M0 190 C80 180 120 150 180 120 S300 40 400 10"/></svg>
+      </div>
+      <div class="tile t-bone">
+        <span class="tag">Identidade visual</span>
+        <span class="aa">Aa</span>
+        <div class="swatches"><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="tile t-wa">
+        <span class="tag">Do anúncio ao WhatsApp</span>
+        <div class="chat"><p class="in">Oi! Vi o anúncio de vocês 👋</p><p class="out">Que bom! Posso te mandar os valores?</p><p class="in">Pode sim, quero fechar</p></div>
+      </div>
+      <div class="tile t-ember">
+        <span class="tag">Resultados</span>
+        <span class="big">Leads que<br>viram vendas</span>
+        <div class="bars" style="height:30%"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+
+    <div class="row r2" data-dir="1">
+      <div class="tile t-bone">
+        <span class="tag">Google Meu Negócio</span>
+        <div class="map"></div>
+        <span class="pin"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg></span>
+        <span class="stars">★★★★★</span>
+      </div>
+      <div class="tile t-ink">
+        <span class="tag">Sites rápidos</span>
+        <div class="browser"><div class="top"><i></i><i></i><i></i></div><div class="body"><b></b><s></s><s></s><s></s><u></u><span class="scan"></span></div></div>
+      </div>
+      <div class="tile t-fire">
+        <span class="tag">Social media</span>
+        <div class="likes"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.5 5c2 0 3.4 1.1 4.2 2.4h2.6C14.1 6.1 15.5 5 17.5 5 21 5 23 8.6 21.6 11.8 19.5 16.4 12 21 12 21Z"/></svg><span id="likes">1.248</span> curtidas</div>
+        <div class="feed"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="tile t-ink">
+        <span class="tag">Relatório mensal</span>
+        <div class="bars"><i style="background:var(--flame)"></i><i style="background:var(--flame)"></i><i style="background:var(--flame)"></i><i style="background:var(--flame)"></i><i style="background:var(--flame)"></i><i style="background:var(--flame)"></i><i style="background:var(--flame)"></i><i></i></div>
+      </div>
+      <div class="tile t-ember">
+        <span class="tag">Estratégia</span>
+        <span class="big">Plano<br>sob medida</span>
+      </div>
+      <div class="tile t-bone">
+        <span class="tag">SEO</span>
+        <span class="big">No topo<br>do Google</span>
+      </div>
+    </div>
+
+    <div class="row r3" data-dir="-1">
+      <div class="tile t-ink"><span class="tag">Google Ads</span><span class="big">Cliques</span></div>
+      <div class="tile t-fire"><span class="tag">Instagram</span><span class="big">Conteúdo</span></div>
+      <div class="tile t-bone"><span class="tag">Design</span><span class="big">Marca</span></div>
+      <div class="tile t-ember"><span class="tag">Sites</span><span class="big">Conversão</span></div>
+      <div class="tile t-wa"><span class="tag">WhatsApp</span><span class="big">Atendimento</span></div>
+      <div class="tile t-ink"><span class="tag">Google Maps</span><span class="big">Reputação</span></div>
+      <div class="tile t-fire"><span class="tag">Meta Ads</span><span class="big">Alcance</span></div>
+    </div>
+  </section>
+
+
+  <section id="black" class="black">
+    <div class="wrap">
+      <div class="black-top">
+        <div>
+          <span class="mono" style="color:var(--flame)">Ofertas de lançamento · até 30 de novembro</span>
+          <h2 class="display">Black<span>November</span></h2>
+          <p class="sub">Novo site, novos preços. Feche até 30/11 e garanta o valor de lançamento. A partir de 1º de dezembro, os preços voltam ao normal.</p>
+        </div>
+        <div class="count" id="count" aria-label="Tempo restante da promoção">
+          <div><b id="cd-d">--</b><span>dias</span></div>
+          <div><b id="cd-h">--</b><span>horas</span></div>
+          <div><b id="cd-m">--</b><span>min</span></div>
+          <div><b id="cd-s">--</b><span>seg</span></div>
+        </div>
+      </div>
+      <div class="offers">
+        <article class="offer">
+          <h3>Cartão digital</h3>
+          <ul><li>Página única para o link da bio</li><li>Botões de WhatsApp, Instagram e mapa</li><li>Cardápio ou catálogo</li><li>Pronto em até 3 dias úteis</li></ul>
+          <div class="now"><small>R$</small><strong>197</strong></div>
+          <span class="after">A partir de 1º/12: R$ 390</span>
+          <a class="btn btn-fire" href="https://wa.me/5547992814041?text=Ol%C3%A1%21%20Quero%20a%20oferta%20Black%20November%3A%20Cart%C3%A3o%20digital" target="_blank" rel="noopener">Quero o meu</a>
+        </article>
+        <article class="offer">
+          <h3>Site Express</h3>
+          <ul><li>Site de 1 página, até 6 seções</li><li>Textos prontos para o seu negócio</li><li>Domínio .com.br por 1 ano</li><li>Hospedagem grátis</li><li>2 rodadas de ajustes · entrega em 7 dias úteis</li></ul>
+          <div class="now"><small>R$</small><strong>497</strong></div>
+          <span class="after">A partir de 1º/12: R$ 1.200</span>
+          <a class="btn btn-fire" href="https://wa.me/5547992814041?text=Ol%C3%A1%21%20Quero%20a%20oferta%20Black%20November%3A%20Site%20Express" target="_blank" rel="noopener">Quero meu site</a>
+        </article>
+        <article class="offer">
+          <h3>Google Perfil Pronto</h3>
+          <ul><li>Criação ou ajuste do Perfil da Empresa no Google</li><li>Categorias, descrição, serviços e horários</li><li>Fotos otimizadas</li><li>QR Code e mensagem para pedir avaliações</li></ul>
+          <div class="now"><small>R$</small><strong>247</strong></div>
+          <span class="after">A partir de 1º/12: R$ 490</span>
+          <a class="btn btn-fire" href="https://wa.me/5547992814041?text=Ol%C3%A1%21%20Quero%20a%20oferta%20Black%20November%3A%20Google%20Perfil%20Pronto" target="_blank" rel="noopener">Quero aparecer</a>
+        </article>
+        <article class="offer hot">
+          <span class="flag">Mais escolhido</span>
+          <h3>Combo Presença Digital</h3>
+          <ul><li>Site Express completo</li><li>Google Perfil Pronto</li><li>Domínio por 1 ano e hospedagem grátis</li><li>Bônus Black Friday (27/11): cartão digital grátis</li></ul>
+          <div class="now"><small>R$</small><strong>647</strong></div>
+          <span class="after">A partir de 1º/12: R$ 1.690</span>
+          <a class="btn btn-fire" href="https://wa.me/5547992814041?text=Ol%C3%A1%21%20Quero%20a%20oferta%20Black%20November%3A%20Combo%20Presen%C3%A7a%20Digital" target="_blank" rel="noopener">Quero o combo</a>
+        </article>
+      </div>
+      <p class="rules">Válido para contratos fechados até 30/11/2026, com vagas limitadas pela ordem de fechamento. Domínio registrado no CPF ou CNPJ do cliente. Após o 1º ano, renovação de domínio e pequenos ajustes por R$ 97/ano (opcional). Alterações depois da entrega são orçadas à parte.</p>
+    </div>
+  </section>
+
+  <section id="solucoes" class="sec">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Soluções<br><span>completas</span></h2>
+        <p>Tudo o que um negócio precisa para ser encontrado, lembrado e escolhido, com uma única equipe cuidando de cada etapa.</p>
+      </div>
+      <ul class="svc">
+        <li><a href="https://wa.me/5547992814041" target="_blank" rel="noopener"><span class="svc-t">Tráfego pago</span><span class="svc-d">Campanhas no Google Ads e Meta Ads para levar clientes prontos para comprar até você.<small>Google Ads · Meta Ads</small></span><span class="arrow"><svg><use href="#arrow"/></svg></span></a></li>
+        <li><a href="https://wa.me/5547992814041" target="_blank" rel="noopener"><span class="svc-t">Social media</span><span class="svc-d">Gestão das redes sociais com conteúdo estratégico, que mantém sua marca ativa e lembrada.<small>Instagram · Facebook</small></span><span class="arrow"><svg><use href="#arrow"/></svg></span></a></li>
+        <li><a href="https://wa.me/5547992814041" target="_blank" rel="noopener"><span class="svc-t">Design gráfico</span><span class="svc-d">Identidade visual e peças gráficas que fazem sua empresa parecer o que ela é: profissional.<small>Logo · Identidade · Peças</small></span><span class="arrow"><svg><use href="#arrow"/></svg></span></a></li>
+        <li><a href="https://wa.me/5547992814041" target="_blank" rel="noopener"><span class="svc-t">Sites</span><span class="svc-d">Sites rápidos e modernos, feitos para transformar visitas em pedidos de orçamento.<small>Institucional · Landing page · SEO</small></span><span class="arrow"><svg><use href="#arrow"/></svg></span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="band" aria-hidden="true">
+    <div class="band-track" id="band">
+      <span>Tráfego pago</span><span>Social media</span><span>Design gráfico</span><span>Sites</span><span>Google Meu Negócio</span><span>SEO</span>
+      <span>Tráfego pago</span><span>Social media</span><span>Design gráfico</span><span>Sites</span><span>Google Meu Negócio</span><span>SEO</span>
+    </div>
+  </div>
+
+  <section id="clube" class="club">
+    <div class="wrap club-grid">
+      <div>
+        <span class="mono kicker">Clube Visibilidade</span>
+        <h2 class="display">Apareça<span>e anuncie no Google</span></h2>
+        <p class="lead">O plano completo para quem quer clientes chegando pelo Google. Tudo do Combo Presença Digital, mais 3 meses de campanhas no Google Ads gerenciadas pela nossa equipe.</p>
+        <div class="price"><small>R$</small><strong>997</strong></div>
+        <p class="price-note">Black November · até 30/11 · ou 3x de R$ 332,33<br>A partir de 1º/12: R$ 1.697</p>
+        <div class="chips"><span>Site incluso</span><span>Perfil no Google incluso</span><span>3 meses de Google Ads</span></div>
+        <a class="btn btn-fire" href="https://wa.me/5547992814041" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Quero entrar no clube</a>
+      </div>
+      <div>
+        <ul class="checks">
+          <li>Site Express completo, com domínio por 1 ano e hospedagem grátis</li>
+          <li>Google Perfil Pronto: criação ou otimização completa do perfil</li>
+          <li>Criação e gestão de campanhas no Google Ads por 3 meses</li>
+          <li>Postagens semanais no perfil do Google durante os 3 meses</li>
+          <li>Respostas a avaliações e gestão de reputação</li>
+          <li>Relatório mensal de desempenho e alcance</li>
+          <li>Suporte direto via WhatsApp</li>
+        </ul>
+        <p class="fine">A verba dos anúncios (cliques) é paga à parte, direto à plataforma do Google.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="processo" class="sec">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Como<br><span>trabalhamos</span></h2>
+        <p>Do primeiro diagnóstico ao crescimento contínuo, você sabe exatamente o que está sendo feito e por quê.</p>
+      </div>
+      <div class="steps" id="steps">
+        <div class="track"><i id="trackfill"></i></div>
+        <article class="step"><span class="n">01</span><h3>Diagnóstico gratuito</h3><p>Analisamos seu negócio, seus concorrentes e as oportunidades do seu mercado.</p></article>
+        <article class="step"><span class="n">02</span><h3>Estratégia personalizada</h3><p>Montamos um plano sob medida para o seu momento e o seu objetivo.</p></article>
+        <article class="step"><span class="n">03</span><h3>Execução e lançamento</h3><p>Campanhas no ar, site publicado e perfis otimizados.</p></article>
+        <article class="step"><span class="n">04</span><h3>Monitoramento em tempo real</h3><p>Acompanhamos as métricas e ajustamos o que for preciso, sem esperar o fim do mês.</p></article>
+        <article class="step"><span class="n">05</span><h3>Relatório mensal</h3><p>Transparência total sobre investimento e resultados.</p></article>
+        <article class="step"><span class="n">06</span><h3>Crescimento contínuo</h3><p>Escalamos o que funciona para o seu negócio continuar crescendo.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="clientes" class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2 class="display">Negócios que<br><span>impulsionamos</span></h2>
+        <p>Restaurantes, hotéis, clínicas, lojas e prestadores de serviço que já passaram pela Adrenalize.</p>
+      </div>
+    </div>
+    <div class="clients">
+      <div class="clients-track" id="clients"></div>
+    </div>
+  </section>
+
+  <section id="contato" class="sec">
+    <div class="wrap final">
+      <span class="mono" style="color:var(--flame)">Diagnóstico gratuito</span>
+      <h2 class="display">Pronto para<br><span class="o">adrenalizar</span> <span class="f">seu negócio?</span></h2>
+      <div class="final-grid">
+        <div class="contacts">
+          <div><span class="mono">WhatsApp</span><a href="https://wa.me/5547992814041" target="_blank" rel="noopener">(47) 99281-4041</a></div>
+          <div><span class="mono">E-mail</span><span>contato@adrenalize.com.br</span></div>
+          <div><span class="mono">Instagram</span><a href="https://instagram.com/adrenalizedigital" target="_blank" rel="noopener">@adrenalizedigital</a></div>
+        </div>
+        <a class="giant-btn" href="https://wa.me/5547992814041" target="_blank" rel="noopener">
+          <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="circ" d="M50 50 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs><text><textPath href="#circ">FALE COM A GENTE · RESPOSTA RÁPIDA · FALE COM A GENTE · RESPOSTA RÁPIDA ·</textPath></text></svg>
+          Chamar no<br>WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#topo"><svg><use href="#mark"/></svg>ADRENALIZE</a>
+    <nav><a href="#clube">Clube Visibilidade</a><a href="#solucoes">Soluções</a><a href="#processo">Como funciona</a><a href="https://instagram.com/adrenalizedigital" target="_blank" rel="noopener">Instagram</a><a href="https://facebook.com/ADRENALIZEDIGITALMARK" target="_blank" rel="noopener">Facebook</a></nav>
+    <span>© 2026 Adrenalize Marketing Digital</span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5547992814041" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><svg><use href="#wa"/></svg></a>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+  /* Contagem regressiva Black November: termina 30/11/2026 23:59:59 (horário de Brasília) */
+  const END = new Date('2026-11-30T23:59:59-03:00').getTime();
+  const cd = ['d','h','m','s'].map(k => document.getElementById('cd-' + k));
+  function tick(){
+    let t = Math.max(0, END - Date.now());
+    const d = Math.floor(t / 864e5); t -= d * 864e5;
+    const h = Math.floor(t / 36e5); t -= h * 36e5;
+    const m = Math.floor(t / 6e4); t -= m * 6e4;
+    const sec = Math.floor(t / 1e3);
+    [d,h,m,sec].forEach((v,i) => { if (cd[i]) cd[i].textContent = String(v).padStart(2,'0'); });
+  }
+  tick(); setInterval(tick, 1000);
+
+  /* Logos de clientes: arquivos em assets/clientes/logo_1.png ... logo_39.png */
+  const TOTAL_LOGOS = 39;
+  const clients = document.getElementById('clients');
+  const fallback = '<span class="clients-fallback"><span><b>39</b> marcas</span><span>Gastronomia</span><span>Hotelaria</span><span>Saúde</span><span>Varejo</span><span>Serviços</span></span>';
+  let loaded = 0, failed = 0;
+  const imgs = [];
+  for (let i = 1; i <= TOTAL_LOGOS; i++) {
+    const im = new Image();
+    im.alt = 'Logo de cliente'; im.loading = 'lazy'; im.decoding = 'async';
+    im.onload = () => { loaded++; check(); };
+    im.onerror = () => { failed++; im.remove(); check(); };
+    im.src = 'assets/clientes/logo_' + i + '.png';
+    imgs.push(im);
+  }
+  function check(){
+    if (loaded + failed < TOTAL_LOGOS) return;
+    clients.innerHTML = '';
+    if (loaded === 0) { clients.innerHTML = fallback + fallback + fallback; clients.dataset.copies = 3; return; }
+    const ok = imgs.filter(im => im.complete && im.naturalWidth);
+    [...ok, ...ok.map(im => im.cloneNode())].forEach(im => clients.appendChild(im)); clients.dataset.copies = 2;
+  }
+  clients.innerHTML = fallback + fallback + fallback; clients.dataset.copies = 3;
+
+  /* Marquees com velocidade extra conforme a rolagem */
+  const marquees = [
+    {el: document.getElementById('mega'), speed: 0.6, x: 0},
+    {el: document.getElementById('band'), speed: 1.1, x: 0},
+    {el: clients, speed: 0.5, x: 0}
+  ];
+  let lastY = scrollY, boost = 0;
+  addEventListener('scroll', () => { boost += Math.abs(scrollY - lastY) * 0.08; lastY = scrollY; }, {passive: true});
+
+  /* Trilhos de cards ligados à rolagem */
+  const reel = document.querySelector('.reel');
+  const rows = [...document.querySelectorAll('.row')];
+  rows.forEach(r => { r.innerHTML += r.innerHTML; });
+
+  /* Linha de progresso do processo */
+  const steps = document.getElementById('steps');
+  const fill = document.getElementById('trackfill');
+
+  /* Contador de curtidas */
+  const likes = document.getElementById('likes');
+  let likeN = 1248;
+
+  function frame(){
+    boost *= 0.92;
+    marquees.forEach(m => {
+      if (!m.el) return;
+      const w = m.el.scrollWidth / (+m.el.dataset.copies || 2);
+      m.x -= (m.speed + Math.min(boost, 14));
+      if (w > 0 && -m.x >= w) m.x += w;
+      m.el.style.transform = 'translate3d(' + m.x + 'px,0,0)';
+    });
+
+    const r = reel.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (innerHeight - r.top) / (innerHeight + r.height)));
+    rows.forEach((row, i) => {
+      const dir = +row.dataset.dir;
+      const travel = row.scrollWidth / 2 - innerWidth;
+      const base = dir < 0 ? 0 : -travel;
+      const x = base + dir * p * Math.max(0, travel) * (0.55 + i * 0.12);
+      row.style.transform = 'translate3d(' + x + 'px,0,0)';
+    });
+
+    const s = steps.getBoundingClientRect();
+    const q = Math.min(1, Math.max(0.08, (innerHeight * 0.85 - s.top) / s.height));
+    fill.style.transform = 'scaleX(' + q + ')';
+
+    requestAnimationFrame(frame);
+  }
+  if (!reduce) {
+    requestAnimationFrame(frame);
+    setInterval(() => { likeN += Math.ceil(Math.random() * 4); likes.textContent = likeN.toLocaleString('pt-BR'); }, 900);
+  } else {
+    fill.style.transform = 'scaleX(1)';
+  }
+})();
+</script>
+
+</body>
+</html>
