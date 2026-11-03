@@ -607,7 +607,7 @@ footer a:hover{color:var(--bone)}
   const imgs = [];
   for (let i = 1; i <= TOTAL_LOGOS; i++) {
     const im = new Image();
-    im.alt = 'Logo de cliente'; im.loading = 'lazy'; im.decoding = 'async';
+    im.alt = 'Logo de cliente'; im.decoding = 'async';
     im.onload = () => { loaded++; check(); };
     im.onerror = () => { failed++; im.remove(); check(); };
     im.src = 'assets/clientes/logo_' + i + '.png';
